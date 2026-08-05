@@ -6,7 +6,7 @@ health monitoring and project information.
 
 """
 
-
+from config.settings import HOST, PORT, DEBUG
 from flask import Flask, request, jsonify
 from engines import analyzer
 
@@ -82,5 +82,10 @@ def about():
         ]
     }), 200
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host=HOST,
+        port=PORT,
+        debug=DEBUG
+    )
